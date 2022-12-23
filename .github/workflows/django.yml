@@ -28,6 +28,6 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        run: pytest .
-        run: flake8 .
+        pytest .
+        flake8 .
 
