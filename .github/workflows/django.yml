@@ -30,4 +30,9 @@ jobs:
       run: |
         pytest .
         flake8 --max-line-length=150 .
+    - name: Archive code coverage results
+      uses: actions/setup-python@v3
+      with:
+          name: code-coverage-report
+          path: output/test/code-coverage.html
 
