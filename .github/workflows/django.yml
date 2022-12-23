@@ -25,10 +25,7 @@ jobs:
       run: |
         pytest .
         flake8 --max-line-length=150 .
-    
-  artifact: 
-    runs-on: ubuntu-latest
-    steps:
+
     - name: Set current date as env variable
       run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
     - name: Archive production artifacts
