@@ -30,10 +30,21 @@ jobs:
       run: |
         pytest .
         flake8 --max-line-length=150 .
+    
+  artifact: 
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+      matrix:
+        python-version: [3.9]
+
+    steps:
+    - name: Set current date as env variable
+      run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: dist-without-markdown
+        name: artifact-$NOW 
         path: |
           /home/runner/work/hse-devops-CI-CD/hse-devops-CI-CD
           !/home/runner/work/hse-devops-CI-CD/hse-devops-CI-CD/**/*.md
