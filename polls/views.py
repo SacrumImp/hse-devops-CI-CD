@@ -5,10 +5,11 @@ from .models import Country
 
 def index(request):
     countries_list = Country.objects.order_by('-area')[:3]
-    context = { 
+    context = {
         'countries_list': countries_list
     }
     return render(request, "polls/index.html", context)
+
 
 def detail(request, id):
     certain_country = Country.objects.filter(id=id).first()
@@ -16,4 +17,3 @@ def detail(request, id):
         'certain_country': certain_country
     }
     return render(request, "polls/detail.html", context)
-
