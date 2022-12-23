@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
 from .models import Country
+
 
 def index(request):
     countries_list = Country.objects.order_by('-area')[:3]
