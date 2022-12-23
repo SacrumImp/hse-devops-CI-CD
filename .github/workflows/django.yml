@@ -27,7 +27,7 @@ jobs:
         flake8 --max-line-length=150 .
 
     - name: Set current date as env variable
-      run: echo "NOW=$(date +'%Y-%m-%dT')" >> $GITHUB_ENV
+      run: echo "NOW=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
       with:
