@@ -26,10 +26,10 @@ jobs:
         pytest .
         flake8 --max-line-length=150 .
 
+    - name: Set current date as env variable
+      run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
-      env:
-          NOW: $(date +'%Y-%m-%dT%H:%M:%S')
       with:
         name: artifact-${{ env.NOW }}
         path: |
